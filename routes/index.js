@@ -3,6 +3,7 @@ var router = express.Router();
 var match = false;
 const User = require('../models/user');
 const fs = require('fs');
+var rp = require('request-promise');
 
 const Web3 = require('web3')
 
@@ -52,14 +53,27 @@ router.post('/dashboard', function(req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'FoodCoin'});
+
+ console.log(web3.eth.accounts);
 });
 
 router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard/index.hbs')
+  let de = "Here, you can browse a selection of foods available at your local food banks. Click on \"Buy\" once you decide on a food, and you will be taken to a verification menu."
+  res.render('dashboard/index.hbs', {des: de });
+})
+
+router.get('/dashboard/verified', function(req, res, next) {
+  let de = "You are now verified to buy food items."
+  res.render('dashboard/index.hbs', {des: de , ethe: 'Wallet: 20' });
 })
 
 router.get('/verify', function(req, res, next) {
     res.render('verify/index.hbs');
+})
+
+router.get('/verify/buyMilk', function(req, res, next) {
+  let de = "You are now verified to buy food items."
+    res.render('verify/buyMilk.hbs',{des: de});
 })
 
 router.post('/verify/index', function(req, res, next) {
@@ -81,7 +95,7 @@ router.post('/verify/index', function(req, res, next) {
   let phone= +phoneNum;
   let dob= +((monthBirth)+(dateBirth)+(yearBrith));
   // console.log(firstlast);
-  console.log(phone);
+  // console.log(phone);
   // console.log(dob);
 
   let currentuser = ({
@@ -105,22 +119,32 @@ router.post('/verify/index', function(req, res, next) {
                DayOfBirth: dateBirth,
                MonthOfBirth: monthBirth,
                YearOfBirth: yearBrith },
-            Communication: { Telephone: phoneNum } } },
+            Communication: { Telephone: phonestring } } },
       headers: {
           "Authorization":"Basic VG9tbXlHYW9fQVBJOkFuZ2VsSGFja3NAMTg="
       },
       json: true };
 
+    rp(options).then(function(body) {
+      // console.log(body);
+      var matchString = body.Record.RecordStatus;
+      if (matchString == "match") match = true;
+      console.log(body.Record.RecordStatus);
+      console.log(match);
+    }).catch(function(err) {
+      console.error(err);
+    });
+
     // request(options, function (error, response, body) {
     //   if (error) throw new Error(error);
     //   var matchString = body.Record.RecordStatus;
     //   if (matchString == "match") match = true;
-    // ///////////////////////////////////////////////////////////GET HELP FROM TRULIOO STAFF!
+    // //////////////////////GET HELP FROM TRULIOO STAFF!
     //   console.log(body.Record.RecordStatus);
     //   console.log(match);
     // });
 
-    if(1==1){ // replace 1 with match
+    if(match){ // replace 1 with match
 
       User.findOne({phone:phone}, function(err, user) {
           if (err) {
@@ -142,12 +166,14 @@ router.post('/verify/index', function(req, res, next) {
           else {
             if (user.paid) {
               console.log('ERIC DONT');
+
               //ERIC don't add money
             }
             else {
               console.log('Yay ! eric do');
-              foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
+              //foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
               // foodToken.myTransfer(from: delivery_address, to: grocery_address, value:web3.toWei("1", "ether"));
+
               //ERIC add money
               User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
                   if (err) {
@@ -157,7 +183,10 @@ router.post('/verify/index', function(req, res, next) {
             }
           }
         });
-        res.redirect('/');
+
+
+        res.redirect('/dashboard/verified');
+
     }
     else {
       console.log("bad information and could not verify. try again");

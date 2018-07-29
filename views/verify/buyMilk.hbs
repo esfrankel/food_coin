@@ -11,7 +11,7 @@
 <div class="center c">
 
 
-<h3 class="center">{{ethe}}</h3>
+<h3 id="et" class="center">Wallet: 19</h3>
 </div>
 <div class="container">
   <div>
@@ -20,8 +20,7 @@
       <div class="card-body">
         <h5 class="card-title">Banana</h5>
         <p class="card-text">Price: 1</p>
-
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!--<a href="https://www.walmart.ca/en/ip/banana-sold-in-singles/875805" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -32,9 +31,8 @@
       <img class="card-img-top" src="https://images.pexels.com/photos/618773/pexels-photo-618773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Beef</h5>
-
         <p class="card-text">Price: 1</p>
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Great-Value-Beef-Burgers-85-Lean-15-Fat-3-lbs-12-Count/10315961" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -45,8 +43,7 @@
       <div class="card-body">
         <h5 class="card-title">Chicken</h5>
         <p class="card-text">Price: 1</p>
-
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Clear-Film-Fresh-Chicken-Boneless-Skinless-Chicken-Breast-Tenders-Jumbo-Pack-2-0-2-75-lbs/133502911" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -57,8 +54,7 @@
       <div class="card-body">
         <h5 class="card-title">Milk</h5>
         <p class="card-text">Price: 1</p>
-
-        <a href="/verify/buyMilk" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Great-Value-2-Reduced-Fat-Milk-1-gal/10450115" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -66,24 +62,16 @@
 </div>
 
 <script type="text/javascript">
-  const button = document.getElementsByClassName('myclick');
+localStorage.clear();
+  function minus() {
 
-  button.addEventListener('click', function(e) {
-    console.log('button was clicked');
-    e = e || window.event;
-    var target = e.target || e.srcElement,
-        id = target.id;
 
-    fetch('/clicked', {method: 'POST', body: JSON.stringify({id: id})});
-      .then(function(response) {
-        if(response.ok) {
-          console.log('Click was recorded');
-          return;
-        }
-        throw new Error('Request failed.');
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-  });
+    if (localStorage.eth) {
+         localStorage.eth = Number(localStorage.eth)-1;
+       } else {
+         localStorage.eth = 18;
+       }
+
+    document.getElementById('et').innerHTML = 'Wallet: '+localStorage.eth;
+    }
 </script>
