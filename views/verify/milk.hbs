@@ -8,7 +8,7 @@
     </div>
   </div>
 </div>
-<h3 class="center">{{ethe}}</h3>
+<h3 id="et" class="center">Wallet: 19</h3>
 <div class="container">
   <div>
     <div class="card" style="width: 16rem;">
@@ -16,7 +16,7 @@
       <div class="card-body">
         <h5 class="card-title">Banana</h5>
         <p class="card-text">Price: 1</p>
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!--<a href="https://www.walmart.ca/en/ip/banana-sold-in-singles/875805" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div class="card-body">
         <h5 class="card-title">Beef</h5>
         <p class="card-text">Price: 1</p>
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Great-Value-Beef-Burgers-85-Lean-15-Fat-3-lbs-12-Count/10315961" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -39,7 +39,7 @@
       <div class="card-body">
         <h5 class="card-title">Chicken</h5>
         <p class="card-text">Price: 1</p>
-        <a href="./verify" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Clear-Film-Fresh-Chicken-Boneless-Skinless-Chicken-Breast-Tenders-Jumbo-Pack-2-0-2-75-lbs/133502911" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
@@ -50,9 +50,24 @@
       <div class="card-body">
         <h5 class="card-title">Milk</h5>
         <p class="card-text">Price: 1</p>
-        <a href="./verify/buyMilk" class="btn btn-primary">Buy</a>
+        <button onclick="minus()" class="btn btn-primary">Buy</button>
         <!-- <a href="https://www.walmart.com/ip/Great-Value-2-Reduced-Fat-Milk-1-gal/10450115" class="btn btn-primary">Buy</a> -->
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+  function minus() {
+
+    if (localStorage.eth) {
+         localStorage.eth = Number(localStorage.eth)-1;
+       } else {
+         localStorage.eth = 18;
+       }
+
+    localStorage.eth = -1;
+    document.getElementById('et').innerHTML = 'Wallet: '+localStorage.eth;
+    }
+</script>

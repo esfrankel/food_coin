@@ -24,11 +24,15 @@ router.get('/dashboard', function(req, res, next) {
 
 router.get('/dashboard/verified', function(req, res, next) {
   let de = "You are now verified to buy food items."
-  res.render('dashboard/index.hbs', {des: de });
+  res.render('dashboard/index.hbs', {des: de , ethe: 'Wallet: 20' });
 })
 
 router.get('/verify', function(req, res, next) {
     res.render('verify/index.hbs');
+})
+
+router.get('/verify/buyMilk', function(req, res, next) {
+    res.render('verify/milk');
 })
 
 router.post('/verify/index', function(req, res, next) {
@@ -124,7 +128,7 @@ router.post('/verify/index', function(req, res, next) {
             }
             else {
               console.log('Yay ! eric do');
-              
+
               //ERIC add money
 
 
