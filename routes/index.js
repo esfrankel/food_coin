@@ -61,4 +61,10 @@ router.post('/verify/index', function(req, res, next) {
     res.redirect('/');
 });
 
+router.get('/test/testform', (req, res) => {
+    res.render('test/testform');
+});
+
+// rouer.post /testform....
+
 module.exports = router;
