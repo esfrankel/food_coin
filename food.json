@@ -1,0 +1,26 @@
+[
+  {
+    "id":0,
+    "name": "Banana",
+    "picture": "https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "price": "1"
+  },
+  {
+    "id":1,
+    "name": "Beef",
+    "picture": "https://images.pexels.com/photos/618773/pexels-photo-618773.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "price": "1"
+  },
+  {
+    "id":2,
+    "name": "Chicken",
+    "picture": "https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "price": "1"
+  },
+  {
+    "id":3,
+    "name": "Milk",
+    "picture": "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "price": "1"
+  },
+]

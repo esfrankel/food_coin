@@ -2,11 +2,18 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
+const getJSON = require('get-json');
+
+
+const Web3 = require('web3')
+
+const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
 const request = require('request')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+
   // const url = "https://api.globalgateway.io/verifications/v1/verify";
   // request.get(url, (err, response, body) => {
   //   if(err) {console.error(err)}
@@ -14,8 +21,13 @@ router.get('/', function(req, res, next) {
   //   console.log(body);
 
   res.render('index', {title: 'FoodCoin'});
+  console.log(web3.eth.accounts);
 // });
 });
+
+router.get('/dashboard', function(req, res, next) {
+  res.render('dashboard/index.hbs')
+})
 
 router.get('/verify', function(req, res, next) {
     res.render('verify/index.hbs');
@@ -23,6 +35,7 @@ router.get('/verify', function(req, res, next) {
 
 router.post('/verify/index', function(req, res, next) {
   let body = req.body;
+  console.log(body);
   let first = body.FirstGivenName;
   let mid = body.MiddleName;
   let last = body.FirstSurName;
@@ -54,7 +67,6 @@ router.post('/verify/index', function(req, res, next) {
       url: 'https://api.globalgateway.io/verifications/v1/verify',
       body:
        { CountryCode: 'US',
-         Demo: 'true',
          AcceptTruliooTermsAndConditions: 'true',
          DataFields:
           { PersonInfo:
