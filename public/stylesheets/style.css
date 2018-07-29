@@ -17,7 +17,7 @@ body, html {
 
 .main-header {
   height: 100vh;
-  background-image: url('./foodbank.jpg');
+  background-image: url('./homelesseating.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,7 +37,7 @@ body, html {
   margin-top: 24vh;
 }
 
-.fucktyler {
+.base {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -54,4 +54,10 @@ body, html {
   border-radius: 1em; */
   background-size: cover;
   margin-top: 3vh;
+}
+
+.formsize {
+  width: 30vw;
+  text-align: left;
+  justify-content: center;
 }
