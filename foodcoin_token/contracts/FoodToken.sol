@@ -38,7 +38,7 @@ contract FoodToken is StandardToken {
 
 contract Purchase {
 
-  address[8] public purchases;
+  address[4] public purchases;
   address public seller;
 
   function Purchase(address _seller) {
@@ -46,7 +46,7 @@ contract Purchase {
   }
 
   function purchase(uint foodId) public returns (uint) {
-    require(foodId >= 0 && foodId <= 7);
+    require(foodId >= 0 && foodId <= 3);
     FoodToken foodContract = FoodToken(msg.sender);
     if (foodContract.transfer(seller, 1)) {
       purchases[foodId] = msg.sender;
@@ -72,7 +72,7 @@ contract Purchase {
   }
 
   function buy(uint foodId) public returns (uint) {
-    require(foodId >= 0 && petId <= 7);
+    require(foodId >= 0 && petId <= 3);
 
     purchases[foodId] = msg.sender;
 
