@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var match = false;
 
 const request = require('request')
