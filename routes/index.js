@@ -27,7 +27,7 @@ function startApp (web3) {
   let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
   let abi = JSON.parse(contents)['abi'];
   var address = '0x8fc965daa172516133bbed68f0a01123519a00df';
-  foodToken = web3.eth.contract(abi).at(address);
+  //foodToken = web3.eth.contract(abi).at(address);
 
   // const eth = new Eth(web3.currentProvider);
   // const contract = new EthContract(eth);
