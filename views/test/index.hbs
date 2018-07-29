@@ -1,0 +1,13 @@
+<h1>Test</h1>
+
+<ul>
+    {{#each user as |u|}}
+        <li>{{u.firstlast}}</li>
+            <ul>
+                <li>{{u.paid}}</li>
+                <li>{{u.date}}</li>
+                <li>{{u.phone}}</li>
+                <li>{{u.dob}}</li>
+            </ul>
+    {{/each}}
+</ul>
