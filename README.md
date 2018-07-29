@@ -11,27 +11,27 @@ A user navigates to the home page which will be the food bank to buy food using 
 ## Models
 
 <li>User</li>
-
-[What data are we dealing with? What classes will we create for that data?]
 ​
 ## Views
 
 <li>Home (Food bank marketplace)</li>
 <li>Identity verification form </li>
 
-[Include pictures of your prototypes/sketches!]​
+![](/Users/yizu/Documents/GitHub/food_coin/img/VeriFood_ProcessFlow.jpg)​
 
 ## Routes
 
 Index/Home
+
 <li>GET</li>
 <li>POST</li>
 
 Identity Verification Form
+
 <li>GET</li>
 <li>POST</li>
 ​
-# AngelHack Hackathon Milestones
+## AngelHack Hackathon Milestones
 
 - Identity verification form (Trulio API)
 - Food bank marketplace (Bootstrap)
