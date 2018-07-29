@@ -10,3 +10,15 @@
 .card {
   margin-bottom: 4vh;
 }
+
+body, html {
+  height: 100%;
+}
+
+.main-header {
+  height: 100vh;
+  background-image: url('./foodbank.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
