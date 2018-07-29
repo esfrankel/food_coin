@@ -42,3 +42,16 @@ body, html {
   justify-content: center;
   align-content: center;
 }
+
+.dashboard {
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 80vw;
+  /* background-color: #3A7E4C; */
+  /* border-color: #3A7e4c;
+  border-width: 10px;
+  border-radius: 1em; */
+  background-size: cover;
+  margin-top: 3vh;
+}
