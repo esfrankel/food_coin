@@ -20,7 +20,7 @@ contract FoodToken is StandardToken {
     return totalSupply_;
   }
 
-  function transfer(address _from, address _to, uint256 _value) public returns (bool success) {
+  function myTransfer(address _from, address _to, uint256 _value) public returns (bool success) {
       require(balances[_from] >= _value);
       require(_to != address(0));
 
@@ -32,30 +32,6 @@ contract FoodToken is StandardToken {
 
   function balanceOf (address _owner) public view returns (uint256 balance) {
     return balances[_owner];
-  }
-}
-
-
-contract Purchase {
-
-  address[4] public purchases;
-  address public seller;
-
-  function Purchase(address _seller) {
-    seller = _seller;
-  }
-
-  function purchase(uint foodId) public returns (uint) {
-    require(foodId >= 0 && foodId <= 3);
-    FoodToken foodContract = FoodToken(msg.sender);
-    if (foodContract.transfer(seller, 1)) {
-      purchases[foodId] = msg.sender;
-    }
-    return foodId;
-  }
-
-  function getPurchases() public returns (address[4]) {
-    return purchases;
   }
 }
 

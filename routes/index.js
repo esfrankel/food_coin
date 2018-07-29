@@ -2,51 +2,56 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
-const Eth = require('ethjs-query');
-const EthContract = require('ethjs-contract');
 const fs = require('fs');
 
 const Web3 = require('web3')
 
 const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
+const Eth = require('ethjs-query');
+const EthContract = require('ethjs-contract');
+
 const request = require('request')
 
-const distribution_address = '0xEE80788557bC820eEA22B9372014626A6036eFE3';
-const grocery_address = '0x69F7E0d12C7885DE1a1c005Df6118aAb6a1d73f1';
+const distribution_address = web3.eth.accounts[0];
+console.log(distribution_address);
+const grocery_address = web3.eth.accounts[1];
+const delivery_address = web3.eth.accounts[2];
 
 var foodToken;
-var purchase;
 
 function startApp (web3) {
-  const eth = new Eth(web3.currentProvider);
-  const contract = new EthContract(eth);
-  initFoodContract(contract);
-  initPurchaseContract(contract);
+  // let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  // const FoodToken = new web3.eth.Contract(contents, )
+  let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  let abi = JSON.parse(contents)['abi'];
+  var address = '0x8fc965daa172516133bbed68f0a01123519a00df';
+  foodToken = web3.eth.contract(abi).at(address);
+
+  // const eth = new Eth(web3.currentProvider);
+  // const contract = new EthContract(eth);
+  // initFoodContract(contract);
 }
+
 
 function initFoodContract (contract) {
   let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
   const FoodToken = contract(JSON.parse(contents)['abi']);
-  foodToken = FoodToken.at(distribution_address);
-}
-
-function initPurchaseContract (contract) {
-  let contents = fs.readFileSync('foodcoin_token/build/contracts/Purchase.json');
-  const Purchase = contract(JSON.parse(contents)['abi']);
-  purchase = Purchase.at(grocery_address);
+  console.log(FoodToken);
+  foodToken = FoodToken.at('0x6d51b2eb8c7d921425b2607a9392533f0d10e109');
+  console.log(foodToken);
 }
 
 startApp(web3);
 
+
 router.post('/dashboard', function(req, res, next) {
-  purchase.purchase(req.body.id);
+  foodToken.myTransfer({from: delivery_address, to: grocery_address});
 });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'FoodCoin'});
-  console.log(web3.eth.accounts);
 });
 
 router.get('/dashboard', function(req, res, next) {
@@ -129,11 +134,9 @@ router.post('/verify/index', function(req, res, next) {
                 console.log(err);
               }
             });
-            foodToken.transfer('0xEE80788557bC820eEA22B9372014626A6036eFE3','0x721A9f42fF992D0e508aceFa936392d3ac4Fccc5', 1).then(function(success){
-              console.log(success);
-            }).catch(function(err) {
-              console.error(err);
-            });
+            // console.log(typeof delivery_address)
+            // console.log(grocery_address)
+            foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
             //ERIC ADD SOME COINS TO THE ACCOUNT
           }
           else {
@@ -143,11 +146,8 @@ router.post('/verify/index', function(req, res, next) {
             }
             else {
               console.log('Yay ! eric do');
-              foodToken.transfer('0xEE80788557bC820eEA22B9372014626A6036eFE3','0x721A9f42fF992D0e508aceFa936392d3ac4Fccc5', 1).then(function(success) {
-                console.log(success);
-              }).catch(function(err) {
-                console.error(err);
-              });
+              foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
+              // foodToken.myTransfer(from: delivery_address, to: grocery_address, value:web3.toWei("1", "ether"));
               //ERIC add money
               User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
                   if (err) {
@@ -179,8 +179,6 @@ router.get('/test', (req, res) => {
     res.render('test/index', {user:user});
     });
 });
-
-
 
 
 router.post('/test/testform', (req, res) => {
