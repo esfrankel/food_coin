@@ -65,6 +65,25 @@ router.post('/verify/index', function(req, res, next) {
   let yearBrith = body.YearOfBirth;
   let phoneNum = body.Telephone;
 
+  let firstlast= first.toLowerCase() + last.toLowerCase();
+  // let paid=
+  // let date=
+  let phonestring= phoneNum;
+  let dobstring= ((monthBirth)+(dateBirth)+(yearBrith));
+  let phone= +phoneNum;
+  let dob= +((monthBirth)+(dateBirth)+(yearBrith));
+  // console.log(firstlast);
+  console.log(phone);
+  // console.log(dob);
+
+  let currentuser = ({
+    firstlast: firstlast,
+    paid: true,
+    phone: phonestring,
+    dob:dobstring
+  });
+
+
     var options = { method: 'POST',
       url: 'https://api.globalgateway.io/verifications/v1/verify',
       body:
@@ -84,16 +103,66 @@ router.post('/verify/index', function(req, res, next) {
       },
       json: true };
 
-    request(options, function (error, response, body) {
-      if (error) throw new Error(error);
-      var matchString = body.Record.RecordStatus;
-      if (matchString == "match") match = true;
-      console.log(body.Record.RecordStatus);
-      console.log(match);
-    });
-    // res.render('index');
-    res.redirect('./dashboard/index');
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
+    //   var matchString = body.Record.RecordStatus;
+    //   if (matchString == "match") match = true;
+    // ///////////////////////////////////////////////////////////GET HELP FROM TRULIOO STAFF!
+    //   console.log(body.Record.RecordStatus);
+    //   console.log(match);
+    // });
+
+    if(1==1){ // replace 1 with match
+
+      User.findOne({phone:phone}, function(err, user) {
+          if (err) {
+            console.error(err);
+          }
+          if (user == null) {
+            console.log('Make user');
+            const usera = new User(currentuser);
+            usera.save(function(err, usera) {
+              if (err) {
+                console.log(err);
+              }
+            });
+            //ERIC ADD SOME COINS TO THE ACCOUNT
+
+          }
+          else {
+            if (user.paid) {
+              console.log('ERIC DONT');
+              //ERIC don't add money
+            }
+            else {
+              console.log('Yay ! eric do');
+              //ERIC add money
+
+
+              User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
+                  if (err) {
+                    console.error(err);
+                  }
+                });
+            }
+          }
+
+
+        });
+
+
+        res.redirect('/');
+
+    }
+    else {
+      console.log("bad information and could not verify. try again");
+      res.redirect('/verify')
+    }
+
+
 });
+
+
 
 router.get('/test/testform', (req, res) => {
     res.render('test/testform');
