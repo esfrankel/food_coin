@@ -13,7 +13,6 @@ A user navigates to the home page which will be the food bank to buy food using 
 <li>User</li>
 ​
 ## Views
-
 <li>Home (Food bank marketplace)</li>
 <li>Identity verification form </li>
 
