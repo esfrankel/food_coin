@@ -20,13 +20,13 @@ contract FoodToken is StandardToken {
     return totalSupply_;
   }
 
-  function transfer(address _to, uint256 _value) public returns (bool success) {
-      require(balances[msg.sender] >= _value);
+  function transfer(address _from, address _to, uint256 _value) public returns (bool success) {
+      require(balances[_from] >= _value);
       require(_to != address(0));
 
-      balances[msg.sender] -= _value;
+      balances[_from] -= _value;
       balances[_to] += _value;
-      emit Transfer(msg.sender, _to, _value);
+      emit Transfer(_from, _to, _value);
       return true;
   }
 
@@ -54,7 +54,7 @@ contract Purchase {
     return foodId;
   }
 
-  function getPurchases() public returns (address[8]) {
+  function getPurchases() public returns (address[4]) {
     return purchases;
   }
 }

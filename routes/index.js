@@ -4,6 +4,7 @@ var match = false;
 const User = require('../models/user');
 const Eth = require('ethjs-query');
 const EthContract = require('ethjs-contract');
+const fs = require('fs');
 
 const Web3 = require('web3')
 
@@ -25,19 +26,21 @@ function startApp (web3) {
 }
 
 function initFoodContract (contract) {
-  const FoodToken = contract('../foodcoin_token/build/contracts/FoodCoin.json');
+  let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  const FoodToken = contract(JSON.parse(contents)['abi']);
   foodToken = FoodToken.at(distribution_address);
 }
 
 function initPurchaseContract (contract) {
-  const Purchase = contract('../foodcoin_token/build/contracts/Purchase.json');
+  let contents = fs.readFileSync('foodcoin_token/build/contracts/Purchase.json');
+  const Purchase = contract(JSON.parse(contents)['abi']);
   purchase = Purchase.at(grocery_address);
 }
 
 startApp(web3);
 
 router.post('/dashboard', function(req, res, next) {
-  Purchase.purchase(req.body.id);
+  purchase.purchase(req.body.id);
 });
 
 /* GET home page. */
@@ -126,8 +129,12 @@ router.post('/verify/index', function(req, res, next) {
                 console.log(err);
               }
             });
+            foodToken.transfer('0xEE80788557bC820eEA22B9372014626A6036eFE3','0x721A9f42fF992D0e508aceFa936392d3ac4Fccc5', 1).then(function(success){
+              console.log(success);
+            }).catch(function(err) {
+              console.error(err);
+            });
             //ERIC ADD SOME COINS TO THE ACCOUNT
-
           }
           else {
             if (user.paid) {
@@ -136,9 +143,12 @@ router.post('/verify/index', function(req, res, next) {
             }
             else {
               console.log('Yay ! eric do');
+              foodToken.transfer('0xEE80788557bC820eEA22B9372014626A6036eFE3','0x721A9f42fF992D0e508aceFa936392d3ac4Fccc5', 1).then(function(success) {
+                console.log(success);
+              }).catch(function(err) {
+                console.error(err);
+              });
               //ERIC add money
-
-
               User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
                   if (err) {
                     console.error(err);
@@ -146,20 +156,13 @@ router.post('/verify/index', function(req, res, next) {
                 });
             }
           }
-
-
         });
-
-
         res.redirect('/');
-
     }
     else {
       console.log("bad information and could not verify. try again");
       res.redirect('/verify')
     }
-
-
 });
 
 
