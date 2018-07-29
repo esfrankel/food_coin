@@ -34,6 +34,8 @@ Identity Verification Form
 
 ## Other
 
+Languages: HTML, CSS, MongoDB, Node.js, Solidity
+Technologies: Ethereum, Trulioo API, Truffle, OpenZeppelin
 Colors: #3A7E4C
 ​
 ## AngelHack Hackathon Milestones
