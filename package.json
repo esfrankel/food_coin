@@ -8,6 +8,9 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "ethereumjs-testrpc": "^6.0.3",
+    "ethjs-contract": "^0.2.3",
+    "ethjs-query": "^0.3.8",
     "express": "~4.16.0",
     "get-json": "^1.0.0",
     "hbs": "~4.0.1",
