@@ -1,40 +1,52 @@
 var express = require('express');
 var router = express.Router();
-const window = require('window');
-var Web3 = require('web3');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-// For connecting to local blockchain
-let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-
-// var Web3 = require('web3');
-// var web3 = new Web3();
-// web3.setProvider(window.web3.currentProvider);
-// for connecting to metamask
-// let web3 = ;
-// let web3 = new Web3(Web3.currentProvider)
+const request = require('request')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(web3);
+  const url = "https://api.globalgateway.io/verifications/v1/verify";
+  request.get(url, (err, response, body) => {
+    if(err) {console.error(err)}
+    body = JSON.parse(body);
+    console.log(body);
 
-  // window.addEventListener('load', function() {
-  //
-  //   // Check if Web3 has been injected by the browser:
-  //   if (typeof web3 !== 'undefined') {
-  //     web3 = new Web3(web3.currentProvider);
-  //   } else {
-  //     // set the provider you want from Web3.providers
-  //     web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-  //   }
-  //
-  // });
-  web3.eth.getBlock(1, function(err, res) {
-    console.log(res);
-  })
-  web3.eth.getAccounts(function(err,res){
-    console.log(res)
-  })
-  res.render('index');
+  res.render('index', {title: 'FoodCoin'});
+});
+});
+
+router.get('/verify', function(req, res, next) {
+    res.render('verify/index.hbs');
+})
+
+router.post('/verify/index', function(req, res, next) {
+    var options = { method: 'POST',
+      url: 'https://api.globalgateway.io/verifications/v1/verify',
+      body:
+       { CountryCode: 'US',
+         Demo: 'true',
+         AcceptTruliooTermsAndConditions: 'true',
+         DataFields:
+          { PersonInfo:
+             { FirstGivenName: 'John',
+               MiddleName: 'Henry',
+               FirstSurName: 'Smith',
+               DayOfBirth: 5,
+               MonthOfBirth: 3,
+               YearOfBirth: 1983 },
+            Communication: { Telephone: '0398968785' } } },
+      headers: {
+          "Authorization":"Basic VG9tbXlHYW9fQVBJOkFuZ2VsSGFja3NAMTg="
+      },
+      json: true };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+
+      console.log(body);
+    });
+    res.render('index');
 });
 
 module.exports = router;
