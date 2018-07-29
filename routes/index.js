@@ -21,37 +21,31 @@ router.get('/verify', function(req, res, next) {
 })
 
 router.post('/verify/index', function(req, res, next) {
-    var data = JSON.stringify({
-        "CountryCode": "US",
-        "Demo": "true",
-        "AcceptTruliooTermsAndConditions": "true",
-        "DataFields": {
-            "PersonInfo": {
-                "FirstGivenName": "John",
-                "MiddleName": "Henry",
-                "FirstSurName": "Smith",
-                "DayOfBirth": 5,
-                "MonthOfBirth": 3,
-                "YearOfBirth": 1983
-            },
-            "Communication": {
-                "Telephone": "0398968785"
-            }
-        }
+    var options = { method: 'POST',
+      url: 'https://api.globalgateway.io/verifications/v1/verify',
+      body:
+       { CountryCode: 'US',
+         Demo: 'true',
+         AcceptTruliooTermsAndConditions: 'true',
+         DataFields:
+          { PersonInfo:
+             { FirstGivenName: 'John',
+               MiddleName: 'Henry',
+               FirstSurName: 'Smith',
+               DayOfBirth: 5,
+               MonthOfBirth: 3,
+               YearOfBirth: 1983 },
+            Communication: { Telephone: '0398968785' } } },
+      headers: {
+          "Authorization":"Basic VG9tbXlHYW9fQVBJOkFuZ2VsSGFja3NAMTg="
+      },
+      json: true };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+
+      console.log(body);
     });
-
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-            console.log(this.responseText);
-        }
-    });
-
-    xhr.open("POST", "https://api.globalgateway.io/verifications/v1/verify");
-
-    xhr.send(data);
     res.render('index');
 });
 
