@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
+var rp = require('request-promise');
 
 
 //const Web3 = require('web3')
@@ -43,7 +44,7 @@ router.post('/verify/index', function(req, res, next) {
   let phone= +phoneNum;
   let dob= +((monthBirth)+(dateBirth)+(yearBrith));
   // console.log(firstlast);
-  console.log(phone);
+  // console.log(phone);
   // console.log(dob);
 
   let currentuser = ({
@@ -73,14 +74,24 @@ router.post('/verify/index', function(req, res, next) {
       },
       json: true };
 
-    request(options, function (error, response, body) {
-      if (error) throw new Error(error);
+    rp(options).then(function(body) {
+      // console.log(body);
       var matchString = body.Record.RecordStatus;
       if (matchString == "match") match = true;
-    //////////////////////GET HELP FROM TRULIOO STAFF!
       console.log(body.Record.RecordStatus);
       console.log(match);
+    }).catch(function(err) {
+      console.error(err);
     });
+
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
+    //   var matchString = body.Record.RecordStatus;
+    //   if (matchString == "match") match = true;
+    // //////////////////////GET HELP FROM TRULIOO STAFF!
+    //   console.log(body.Record.RecordStatus);
+    //   console.log(match);
+    // });
 
     if(match){ // replace 1 with match
 
@@ -102,14 +113,20 @@ router.post('/verify/index', function(req, res, next) {
           else {
             if (user.paid) {
               console.log('ERIC DONT');
+              res.redirect('/');
               //ERIC don't add money
             }
             else {
               console.log('Yay ! eric do');
+              res.redirect('/');
               //ERIC add money
 
-              //update user.paid to 1
 
+              User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
+                  if (err) {
+                    console.error(err);
+                  }
+                });
             }
           }
 
