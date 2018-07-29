@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
+const getJSON = require('get-json');
+
 
 const Web3 = require('web3')
 
@@ -14,6 +16,10 @@ router.get('/', function(req, res, next) {
   res.render('index', {title: 'FoodCoin'});
   console.log(web3.eth.accounts);
 });
+
+router.get('/dashboard', function(req, res, next) {
+  res.render('dashboard/index.hbs')
+})
 
 router.get('/verify', function(req, res, next) {
     res.render('verify/index.hbs');
