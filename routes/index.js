@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
+var rp = require('request-promise');
 
 
 //const Web3 = require('web3')
@@ -73,14 +74,24 @@ router.post('/verify/index', function(req, res, next) {
       },
       json: true };
 
-    request(options, function (error, response, body) {
-      if (error) throw new Error(error);
+    rp(options).then(function(body) {
+      console.log(body);
       var matchString = body.Record.RecordStatus;
       if (matchString == "match") match = true;
-    //////////////////////GET HELP FROM TRULIOO STAFF!
       console.log(body.Record.RecordStatus);
       console.log(match);
+    }).catch(function(err) {
+      console.error(err);
     });
+
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
+    //   var matchString = body.Record.RecordStatus;
+    //   if (matchString == "match") match = true;
+    // //////////////////////GET HELP FROM TRULIOO STAFF!
+    //   console.log(body.Record.RecordStatus);
+    //   console.log(match);
+    // });
 
     if(match){ // replace 1 with match
 
