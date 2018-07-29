@@ -18,7 +18,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard/index.hbs')
+  let de = "Here, you can browse a selection of foods available at your local food banks. Click on \"Buy\" once you decide on a food, and you will be taken to a verification menu."
+  res.render('dashboard/index.hbs', {des: de });
+})
+
+router.get('/dashboard/verified', function(req, res, next) {
+  let de = "You are now verified to buy food items."
+  res.render('dashboard/index.hbs', {des: de });
 })
 
 router.get('/verify', function(req, res, next) {
@@ -113,12 +119,12 @@ router.post('/verify/index', function(req, res, next) {
           else {
             if (user.paid) {
               console.log('ERIC DONT');
-              res.redirect('/');
+
               //ERIC don't add money
             }
             else {
               console.log('Yay ! eric do');
-              res.redirect('/');
+              
               //ERIC add money
 
 
@@ -134,7 +140,7 @@ router.post('/verify/index', function(req, res, next) {
         });
 
 
-        res.redirect('/');
+        res.redirect('/dashboard/verified');
 
     }
     else {
