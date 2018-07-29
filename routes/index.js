@@ -4,16 +4,16 @@ var match = false;
 const User = require('../models/user');
 
 
-//const Web3 = require('web3')
+const Web3 = require('web3')
 
-//const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
+const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
 const request = require('request')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'FoodCoin'});
-//  console.log(web3.eth.accounts);
+ console.log(web3.eth.accounts);
 });
 
 router.get('/dashboard', function(req, res, next) {
