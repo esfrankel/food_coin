@@ -11,7 +11,16 @@ router.get('/', function(req, res, next) {
     body = JSON.parse(body);
     console.log(body);
 
-  res.render('index', {title: 'Express'});
+  res.render('index', {title: 'FoodCoin'});
+});
+});
+
+router.post('/verify/index', function(req, res, next) {
+    const url = "https://api.globalgateway.io/verifications/v1/verify";
+    request.get(url, (err, response, body) => {
+      if(err) {console.error(err)}
+      body = JSON.parse(body);
+      console.log(body);
 });
 });
 
