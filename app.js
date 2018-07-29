@@ -43,7 +43,7 @@ app.use(function(err, req, res, next) {
 });
 
 const mongoose = require('mongoose');
-const momngoURI = 'mongodb://<dbuser>:<dbpassword>@ds241019.mlab.com:41019/verifood';
+const mongoURI = 'mongodb://ahack:ahack18@ds241019.mlab.com:41019/verifood';
 
 mongoose.connect(mongoURI)
 mongoose.Promise = global.Promise;

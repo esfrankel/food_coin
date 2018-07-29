@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var match = false;
+const User = require('../models/user');
 
 const request = require('request')
 
@@ -57,7 +58,7 @@ router.post('/verify/index', function(req, res, next) {
       console.log(body.Record.RecordStatus);
       console.log(match);
     });
-    res.render('index');
+    // res.render('index');
     res.redirect('/');
 });
 
@@ -65,6 +66,26 @@ router.get('/test/testform', (req, res) => {
     res.render('test/testform');
 });
 
-// rouer.post /testform....
+
+router.get('/test', (req, res) => {
+    User.find({}, function(err, user) {
+        if(err) { console.error(err) };
+
+    res.render('test/index', {user:user});
+    });
+});
+
+
+
+
+router.post('/test/testform', (req, res) => {
+ const user = new User(req.body);
+ user.save(function(err, user) {
+   if (err) {
+     console.log(err);
+   }
+   return res.redirect('/test/');
+ });
+});
 
 module.exports = router;
