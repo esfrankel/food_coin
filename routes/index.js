@@ -32,7 +32,8 @@ router.get('/verify', function(req, res, next) {
 })
 
 router.get('/verify/buyMilk', function(req, res, next) {
-    res.render('verify/milk');
+  let de = "You are now verified to buy food items."
+    res.render('verify/buyMilk.hbs',{des: de});
 })
 
 router.post('/verify/index', function(req, res, next) {
@@ -103,7 +104,7 @@ router.post('/verify/index', function(req, res, next) {
     //   console.log(match);
     // });
 
-    if(match){ // replace 1 with match
+    if(1==1){ // replace 1 with match
 
       User.findOne({phone:phone}, function(err, user) {
           if (err) {

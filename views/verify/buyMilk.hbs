@@ -58,8 +58,9 @@
 </div>
 
 <script type="text/javascript">
-
+localStorage.clear();
   function minus() {
+
 
     if (localStorage.eth) {
          localStorage.eth = Number(localStorage.eth)-1;
@@ -67,7 +68,6 @@
          localStorage.eth = 18;
        }
 
-    localStorage.eth = -1;
     document.getElementById('et').innerHTML = 'Wallet: '+localStorage.eth;
     }
 </script>
