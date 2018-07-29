@@ -2,14 +2,43 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
-const getJSON = require('get-json');
-
+const Eth = require('ethjs-query');
+const EthContract = require('ethjs-contract');
 
 const Web3 = require('web3')
 
 const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
 const request = require('request')
+
+const distribution_address = '0xEE80788557bC820eEA22B9372014626A6036eFE3';
+const grocery_address = '0x69F7E0d12C7885DE1a1c005Df6118aAb6a1d73f1';
+
+var foodToken;
+var purchase;
+
+function startApp (web3) {
+  const eth = new Eth(web3.currentProvider);
+  const contract = new EthContract(eth);
+  initFoodContract(contract);
+  initPurchaseContract(contract);
+}
+
+function initFoodContract (contract) {
+  const FoodToken = contract('../foodcoin_token/build/contracts/FoodCoin.json');
+  foodToken = FoodToken.at(distribution_address);
+}
+
+function initPurchaseContract (contract) {
+  const Purchase = contract('../foodcoin_token/build/contracts/Purchase.json');
+  purchase = Purchase.at(grocery_address);
+}
+
+startApp(web3);
+
+router.post('/dashboard', function(req, res, next) {
+  Purchase.purchase(req.body.id);
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -63,7 +92,7 @@ router.post('/verify/index', function(req, res, next) {
       console.log(match);
     });
     // res.render('index');
-    res.redirect('/');
+    res.redirect('./dashboard/index');
 });
 
 router.get('/test/testform', (req, res) => {

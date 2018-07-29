@@ -10,7 +10,7 @@
       <div class="card-body">
         <h5 class="card-title">Banana</h5>
         <p class="card-text">Price: 1</p>
-        <a href="https://www.walmart.ca/en/ip/banana-sold-in-singles/875805" class="btn btn-primary">Buy</a>
+        <a class="myclick btn btn-primary">Buy</a>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
       <div class="card-body">
         <h5 class="card-title">Beef</h5>
         <p class="card-text">Price: 2</p>
-        <a href="https://www.walmart.com/ip/Great-Value-Beef-Burgers-85-Lean-15-Fat-3-lbs-12-Count/10315961" class="btn btn-primary">Buy</a>
+        <a class="myclick btn btn-primary">Buy</a>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
       <div class="card-body">
         <h5 class="card-title">Chicken</h5>
         <p class="card-text">Price: 1</p>
-        <a href="https://www.walmart.com/ip/Clear-Film-Fresh-Chicken-Boneless-Skinless-Chicken-Breast-Tenders-Jumbo-Pack-2-0-2-75-lbs/133502911" class="btn btn-primary">Buy</a>
+        <a class="myclick btn btn-primary">Buy</a>
       </div>
     </div>
   </div>
@@ -41,8 +41,31 @@
       <div class="card-body">
         <h5 class="card-title">Milk</h5>
         <p class="card-text">Price: 1</p>
-        <a href="https://www.walmart.com/ip/Great-Value-2-Reduced-Fat-Milk-1-gal/10450115" class="btn btn-primary">Buy</a>
+        <a class="myclick btn btn-primary">Buy</a>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  const button = document.getElementsByClassName('myclick');
+
+  button.addEventListener('click', function(e) {
+    console.log('button was clicked');
+    e = e || window.event;
+    var target = e.target || e.srcElement,
+        id = target.id;
+
+    fetch('/clicked', {method: 'POST', body: JSON.stringify({id: id})});
+      .then(function(response) {
+        if(response.ok) {
+          console.log('Click was recorded');
+          return;
+        }
+        throw new Error('Request failed.');
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+</script>
