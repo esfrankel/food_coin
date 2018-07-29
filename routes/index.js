@@ -44,7 +44,7 @@ router.post('/verify/index', function(req, res, next) {
   let phone= +phoneNum;
   let dob= +((monthBirth)+(dateBirth)+(yearBrith));
   // console.log(firstlast);
-  console.log(phone);
+  // console.log(phone);
   // console.log(dob);
 
   let currentuser = ({
@@ -75,7 +75,7 @@ router.post('/verify/index', function(req, res, next) {
       json: true };
 
     rp(options).then(function(body) {
-      console.log(body);
+      // console.log(body);
       var matchString = body.Record.RecordStatus;
       if (matchString == "match") match = true;
       console.log(body.Record.RecordStatus);
@@ -113,10 +113,12 @@ router.post('/verify/index', function(req, res, next) {
           else {
             if (user.paid) {
               console.log('ERIC DONT');
+              res.redirect('/');
               //ERIC don't add money
             }
             else {
               console.log('Yay ! eric do');
+              res.redirect('/');
               //ERIC add money
 
 
