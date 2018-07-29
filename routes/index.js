@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var match = false;
 
 const request = require('request')
 
@@ -20,6 +21,15 @@ router.get('/verify', function(req, res, next) {
 })
 
 router.post('/verify/index', function(req, res, next) {
+  let body = req.body;
+  let first = body.FirstGivenName;
+  let mid = body.MiddleName;
+  let last = body.FirstSurName;
+  let dateBirth = body.DayOfBirth;
+  let monthBirth = body.MonthOfBirth;
+  let yearBrith = body.YearOfBirth;
+  let phoneNum = body.Telephone;
+
     var options = { method: 'POST',
       url: 'https://api.globalgateway.io/verifications/v1/verify',
       body:
@@ -28,13 +38,13 @@ router.post('/verify/index', function(req, res, next) {
          AcceptTruliooTermsAndConditions: 'true',
          DataFields:
           { PersonInfo:
-             { FirstGivenName: 'John',
-               MiddleName: 'Henry',
-               FirstSurName: 'Smith',
-               DayOfBirth: 5,
-               MonthOfBirth: 3,
-               YearOfBirth: 1983 },
-            Communication: { Telephone: '0398968785' } } },
+             { FirstGivenName: first,
+               MiddleName: mid,
+               FirstSurName: last,
+               DayOfBirth: dateBirth,
+               MonthOfBirth: monthBirth,
+               YearOfBirth: yearBrith },
+            Communication: { Telephone: phoneNum } } },
       headers: {
           "Authorization":"Basic VG9tbXlHYW9fQVBJOkFuZ2VsSGFja3NAMTg="
       },
@@ -42,10 +52,13 @@ router.post('/verify/index', function(req, res, next) {
 
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-
-      console.log(body);
+      var matchString = body.Record.RecordStatus;
+      if (matchString == "match") match = true;
+      console.log(body.Record.RecordStatus);
+      console.log(match);
     });
     res.render('index');
+    res.redirect('/');
 });
 
 module.exports = router;
