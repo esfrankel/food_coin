@@ -104,7 +104,7 @@ router.post('/verify/index', function(req, res, next) {
     //   console.log(match);
     // });
 
-    if(1==1){ // replace 1 with match
+    if(match){ // replace 1 with match
 
       User.findOne({phone:phone}, function(err, user) {
           if (err) {
