@@ -1,8 +1,69 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+
 }
 
-a {
-  color: #00B7FF;
+.card {
+  margin-bottom: 4vh;
+}
+
+body, html {
+  height: 100%;
+}
+
+.main-header {
+  height: 100vh;
+  background-image: url('./homelesseating.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity = 0.5;
+}
+
+.specialjum {
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 50vw;
+  /* background-color: #3A7E4C; */
+  /* border-color: #3A7e4c;
+  border-width: 10px;
+  border-radius: 1em; */
+  background-size: cover;
+  margin-top: 24vh;
+}
+
+.base {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.dashboard {
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: 80vw;
+  /* background-color: #3A7E4C; */
+  /* border-color: #3A7e4c;
+  border-width: 10px;
+  border-radius: 1em; */
+  background-size: cover;
+  margin-top: 3vh;
+}
+
+.formsize {
+  width: 30vw;
+  text-align: left;
+  justify-content: center;
+}
+.c {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 3vh;
 }

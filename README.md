@@ -1,43 +1,46 @@
-# FoodCoin
-[1-2 sentence description of the web app]
+# VeriFood
+VeriFood is an identity verification platform for homeless people missing legal documents to access food stamps. Food stamps are Ethereum tokens that will be used to buy food at a local food bank.
 ​
-## Audience
-[Who cares/uses it? why?]
-​
+## Problem/Audience
+Walking through Hyde Street in the Tenderloin district in San Francisco, our team was struck by drug use of homeless people. We were shook by the frequency of homeless people encountered in the streets considering San Francisco's advancement in the world. According to San Francisco's Department of Homelessness and Supportive Housing, 15% of homeless people suffer drug or alcohol abuse. There is a clear need to mitigate the homeless issue both from the city council and companies in the Bay Area.
+
+Source: http://hsh.sfgov.org/wp-content/uploads/2017/06/San-Francisco-PIT-Executive-Summary-FINAL-6.21.17.pdf
+
 ## Experience
-A user opens the web app... [complete this thought]
-​
+A user navigates to the home page which will be the food bank to buy food using Food Tokens. To get Food tokens, a user will have to verify his identity by inputting credentials in form. Once verified, a user will be awarded 20 Food tokens on his unique Ethereum wallet every 20 days to purchase food at the food bank.
+
 # Technical
 ## Models
-[What data are we dealing with? What classes will we create for that data?]
+
+<li>User</li>
 ​
 ## Views
-[What custom views do we need to create? Include pictures of your prototypes/sketches!]
-​
+<li>Home (Food bank marketplace)</li>
+<li>Identity verification form </li>
+
+![](/Users/yizu/Documents/GitHub/food_coin/img/VeriFood_ProcessFlow.jpg)​
+
 ## Routes
-[What routes will we need? What will they do?]
-​
+
+Index/Home
+
+<li>GET</li>
+<li>POST</li>
+
+Identity Verification Form
+
+<li>GET</li>
+<li>POST</li>
+
 ## Other
-[Any other frameworks / things we will need? Helpers? Services?]
+
+Languages: HTML, CSS, MongoDB, Node.js, Solidity
+Technologies: Ethereum, Trulioo API, Truffle, OpenZeppelin
+Colors: #3A7E4C
 ​
-# Weekly Milestone
-## Week 4 - Usable Build
-[List of tasks needed to be complete before you can start user testing]
-- task 1
-- task 2
-- task 3
-- [...]
+## AngelHack Hackathon Milestones
+- Identity verification form (Trulio API)
+- Food bank marketplace (Bootstrap)
+- Ethereum wallet (Metamask)
+- ERC20 Food token
 ​
-## Week 5 - Finish Features
-[List of tasks to complete the implementation of features]
-- task 1
-- task 2
-- task 3
-- [...]
-​
-## Week 6 - Polish
-[List of tasks needed to polish and launch on a live server]
-- task 1
-- task 2
-- task 3
-- [...]
