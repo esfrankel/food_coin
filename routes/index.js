@@ -67,22 +67,22 @@ router.post('/verify/index', function(req, res, next) {
                DayOfBirth: dateBirth,
                MonthOfBirth: monthBirth,
                YearOfBirth: yearBrith },
-            Communication: { Telephone: phoneNum } } },
+            Communication: { Telephone: phonestring } } },
       headers: {
           "Authorization":"Basic VG9tbXlHYW9fQVBJOkFuZ2VsSGFja3NAMTg="
       },
       json: true };
 
-    // request(options, function (error, response, body) {
-    //   if (error) throw new Error(error);
-    //   var matchString = body.Record.RecordStatus;
-    //   if (matchString == "match") match = true;
-    // ///////////////////////////////////////////////////////////GET HELP FROM TRULIOO STAFF!
-    //   console.log(body.Record.RecordStatus);
-    //   console.log(match);
-    // });
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      var matchString = body.Record.RecordStatus;
+      if (matchString == "match") match = true;
+    //////////////////////GET HELP FROM TRULIOO STAFF!
+      console.log(body.Record.RecordStatus);
+      console.log(match);
+    });
 
-    if(1==1){ // replace 1 with match
+    if(match){ // replace 1 with match
 
       User.findOne({phone:phone}, function(err, user) {
           if (err) {
