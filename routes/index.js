@@ -108,8 +108,12 @@ router.post('/verify/index', function(req, res, next) {
               console.log('Yay ! eric do');
               //ERIC add money
 
-              //update user.paid to 1
 
+              User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
+                  if (err) {
+                    console.error(err);
+                  }
+                });
             }
           }
 
