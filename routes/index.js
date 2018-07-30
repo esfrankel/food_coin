@@ -2,18 +2,58 @@ var express = require('express');
 var router = express.Router();
 var match = false;
 const User = require('../models/user');
+const fs = require('fs');
 var rp = require('request-promise');
-
 
 const Web3 = require('web3')
 
 const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
+const Eth = require('ethjs-query');
+const EthContract = require('ethjs-contract');
+
 const request = require('request')
+
+const distribution_address = web3.eth.accounts[0];
+console.log(distribution_address);
+const grocery_address = web3.eth.accounts[1];
+const delivery_address = web3.eth.accounts[2];
+
+var foodToken;
+
+function startApp (web3) {
+  // let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  // const FoodToken = new web3.eth.Contract(contents, )
+  let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  let abi = JSON.parse(contents)['abi'];
+  var address = '0x8fc965daa172516133bbed68f0a01123519a00df';
+  //foodToken = web3.eth.contract(abi).at(address);
+
+  // const eth = new Eth(web3.currentProvider);
+  // const contract = new EthContract(eth);
+  // initFoodContract(contract);
+}
+
+
+function initFoodContract (contract) {
+  let contents = fs.readFileSync('foodcoin_token/build/contracts/FoodToken.json');
+  const FoodToken = contract(JSON.parse(contents)['abi']);
+  console.log(FoodToken);
+  foodToken = FoodToken.at('0x6d51b2eb8c7d921425b2607a9392533f0d10e109');
+  console.log(foodToken);
+}
+
+startApp(web3);
+
+
+router.post('/dashboard', function(req, res, next) {
+  foodToken.myTransfer({from: delivery_address, to: grocery_address});
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'FoodCoin'});
+
  console.log(web3.eth.accounts);
 });
 
@@ -118,8 +158,10 @@ router.post('/verify/index', function(req, res, next) {
                 console.log(err);
               }
             });
+            // console.log(typeof delivery_address)
+            // console.log(grocery_address)
+            foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
             //ERIC ADD SOME COINS TO THE ACCOUNT
-
           }
           else {
             if (user.paid) {
@@ -129,10 +171,10 @@ router.post('/verify/index', function(req, res, next) {
             }
             else {
               console.log('Yay ! eric do');
+              //foodToken.myTransfer(delivery_address, grocery_address, web3.toWei("1", "ether"));
+              // foodToken.myTransfer(from: delivery_address, to: grocery_address, value:web3.toWei("1", "ether"));
 
               //ERIC add money
-
-
               User.update({ _id: user._id }, { $set: { paid: true }}, function(err, res) {
                   if (err) {
                     console.error(err);
@@ -140,8 +182,6 @@ router.post('/verify/index', function(req, res, next) {
                 });
             }
           }
-
-
         });
 
 
@@ -152,8 +192,6 @@ router.post('/verify/index', function(req, res, next) {
       console.log("bad information and could not verify. try again");
       res.redirect('/verify')
     }
-
-
 });
 
 
@@ -170,8 +208,6 @@ router.get('/test', (req, res) => {
     res.render('test/index', {user:user});
     });
 });
-
-
 
 
 router.post('/test/testform', (req, res) => {

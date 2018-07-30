@@ -1,24 +1,24 @@
 {
   "contractName": "ReentrancyGuard",
   "abi": [],
-  "bytecode": "0x608060405260008060006101000a81548160ff021916908315150217905550348015602957600080fd5b5060358060376000396000f3006080604052600080fd00a165627a7a723058206d0f957d2320379c75dc711e2e1d2a65552bd1d10d5592010e970a0f842515840029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a723058206d0f957d2320379c75dc711e2e1d2a65552bd1d10d5592010e970a0f842515840029",
+  "bytecode": "0x608060405260008060006101000a81548160ff021916908315150217905550348015602957600080fd5b5060358060376000396000f3006080604052600080fd00a165627a7a72305820e8480d3ba4914ea3bf1ebdfdee6f77d4f13d9da38d20923e75d9be4decc07e480029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820e8480d3ba4914ea3bf1ebdfdee6f77d4f13d9da38d20923e75d9be4decc07e480029",
   "sourceMap": "224:643:8:-;;;351:5;321:35;;;;;;;;;;;;;;;;;;;;224:643;8:9:-1;5:2;;;30:1;27;20:12;5:2;224:643:8;;;;;;;",
   "deployedSourceMap": "224:643:8:-;;;;;",
   "source": "pragma solidity ^0.4.24;\n\n\n/**\n * @title Helps contracts guard agains reentrancy attacks.\n * @author Remco Bloemen <remco@2π.com>\n * @notice If you mark a function `nonReentrant`, you should also\n * mark it `external`.\n */\ncontract ReentrancyGuard {\n\n  /**\n   * @dev We use a single lock for the whole contract.\n   */\n  bool private reentrancyLock = false;\n\n  /**\n   * @dev Prevents a contract from calling itself, directly or indirectly.\n   * @notice If you mark a function `nonReentrant`, you should also\n   * mark it `external`. Calling one nonReentrant function from\n   * another is not supported. Instead, you can implement a\n   * `private` function doing the actual work, and a `external`\n   * wrapper marked as `nonReentrant`.\n   */\n  modifier nonReentrant() {\n    require(!reentrancyLock);\n    reentrancyLock = true;\n    _;\n    reentrancyLock = false;\n  }\n\n}\n",
-  "sourcePath": "/Users/ericfrankel/Desktop/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
+  "sourcePath": "/Users/ericfrankel/Desktop/food_coin/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
   "ast": {
-    "absolutePath": "/Users/ericfrankel/Desktop/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
+    "absolutePath": "/Users/ericfrankel/Desktop/food_coin/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
     "exportedSymbols": {
       "ReentrancyGuard": [
-        499
+        574
       ]
     },
-    "id": 500,
+    "id": 575,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 478,
+        "id": 553,
         "literals": [
           "solidity",
           "^",
@@ -34,19 +34,19 @@
         "contractKind": "contract",
         "documentation": "@title Helps contracts guard agains reentrancy attacks.\n@author Remco Bloemen <remco@2π.com>\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`.",
         "fullyImplemented": true,
-        "id": 499,
+        "id": 574,
         "linearizedBaseContracts": [
-          499
+          574
         ],
         "name": "ReentrancyGuard",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 481,
+            "id": 556,
             "name": "reentrancyLock",
             "nodeType": "VariableDeclaration",
-            "scope": 499,
+            "scope": 574,
             "src": "321:35:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -55,7 +55,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 479,
+              "id": 554,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "321:4:8",
@@ -67,7 +67,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "66616c7365",
-              "id": 480,
+              "id": 555,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -86,7 +86,7 @@
           },
           {
             "body": {
-              "id": 497,
+              "id": 572,
               "nodeType": "Block",
               "src": "767:97:8",
               "statements": [
@@ -96,7 +96,7 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 485,
+                        "id": 560,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -107,11 +107,11 @@
                         "src": "781:15:8",
                         "subExpression": {
                           "argumentTypes": null,
-                          "id": 484,
+                          "id": 559,
                           "name": "reentrancyLock",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 481,
+                          "referencedDeclaration": 556,
                           "src": "782:14:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -131,21 +131,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 483,
+                      "id": 558,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        6167,
-                        6168
+                        6242,
+                        6243
                       ],
-                      "referencedDeclaration": 6167,
+                      "referencedDeclaration": 6242,
                       "src": "773:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 486,
+                    "id": 561,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -159,25 +159,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 487,
+                  "id": 562,
                   "nodeType": "ExpressionStatement",
                   "src": "773:24:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 490,
+                    "id": 565,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 488,
+                      "id": 563,
                       "name": "reentrancyLock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 481,
+                      "referencedDeclaration": 556,
                       "src": "803:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -189,7 +189,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 489,
+                      "id": 564,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -210,30 +210,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 491,
+                  "id": 566,
                   "nodeType": "ExpressionStatement",
                   "src": "803:21:8"
                 },
                 {
-                  "id": 492,
+                  "id": 567,
                   "nodeType": "PlaceholderStatement",
                   "src": "830:1:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 495,
+                    "id": 570,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 493,
+                      "id": 568,
                       "name": "reentrancyLock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 481,
+                      "referencedDeclaration": 556,
                       "src": "837:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -245,7 +245,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 494,
+                      "id": 569,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -266,18 +266,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 496,
+                  "id": 571,
                   "nodeType": "ExpressionStatement",
                   "src": "837:22:8"
                 }
               ]
             },
             "documentation": "@dev Prevents a contract from calling itself, directly or indirectly.\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`. Calling one nonReentrant function from\nanother is not supported. Instead, you can implement a\n`private` function doing the actual work, and a `external`\nwrapper marked as `nonReentrant`.",
-            "id": 498,
+            "id": 573,
             "name": "nonReentrant",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 482,
+              "id": 557,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "764:2:8"
@@ -286,24 +286,24 @@
             "visibility": "internal"
           }
         ],
-        "scope": 500,
+        "scope": 575,
         "src": "224:643:8"
       }
     ],
     "src": "0:868:8"
   },
   "legacyAST": {
-    "absolutePath": "/Users/ericfrankel/Desktop/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
+    "absolutePath": "/Users/ericfrankel/Desktop/food_coin/foodcoin_token/contracts/zeppelin-solidity/contracts/ReentrancyGuard.sol",
     "exportedSymbols": {
       "ReentrancyGuard": [
-        499
+        574
       ]
     },
-    "id": 500,
+    "id": 575,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 478,
+        "id": 553,
         "literals": [
           "solidity",
           "^",
@@ -319,19 +319,19 @@
         "contractKind": "contract",
         "documentation": "@title Helps contracts guard agains reentrancy attacks.\n@author Remco Bloemen <remco@2π.com>\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`.",
         "fullyImplemented": true,
-        "id": 499,
+        "id": 574,
         "linearizedBaseContracts": [
-          499
+          574
         ],
         "name": "ReentrancyGuard",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 481,
+            "id": 556,
             "name": "reentrancyLock",
             "nodeType": "VariableDeclaration",
-            "scope": 499,
+            "scope": 574,
             "src": "321:35:8",
             "stateVariable": true,
             "storageLocation": "default",
@@ -340,7 +340,7 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 479,
+              "id": 554,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
               "src": "321:4:8",
@@ -352,7 +352,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "66616c7365",
-              "id": 480,
+              "id": 555,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -371,7 +371,7 @@
           },
           {
             "body": {
-              "id": 497,
+              "id": 572,
               "nodeType": "Block",
               "src": "767:97:8",
               "statements": [
@@ -381,7 +381,7 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 485,
+                        "id": 560,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -392,11 +392,11 @@
                         "src": "781:15:8",
                         "subExpression": {
                           "argumentTypes": null,
-                          "id": 484,
+                          "id": 559,
                           "name": "reentrancyLock",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 481,
+                          "referencedDeclaration": 556,
                           "src": "782:14:8",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
@@ -416,21 +416,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 483,
+                      "id": 558,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        6167,
-                        6168
+                        6242,
+                        6243
                       ],
-                      "referencedDeclaration": 6167,
+                      "referencedDeclaration": 6242,
                       "src": "773:7:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 486,
+                    "id": 561,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -444,25 +444,25 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 487,
+                  "id": 562,
                   "nodeType": "ExpressionStatement",
                   "src": "773:24:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 490,
+                    "id": 565,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 488,
+                      "id": 563,
                       "name": "reentrancyLock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 481,
+                      "referencedDeclaration": 556,
                       "src": "803:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -474,7 +474,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "74727565",
-                      "id": 489,
+                      "id": 564,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -495,30 +495,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 491,
+                  "id": 566,
                   "nodeType": "ExpressionStatement",
                   "src": "803:21:8"
                 },
                 {
-                  "id": 492,
+                  "id": 567,
                   "nodeType": "PlaceholderStatement",
                   "src": "830:1:8"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 495,
+                    "id": 570,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 493,
+                      "id": 568,
                       "name": "reentrancyLock",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 481,
+                      "referencedDeclaration": 556,
                       "src": "837:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -530,7 +530,7 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 494,
+                      "id": 569,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -551,18 +551,18 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 496,
+                  "id": 571,
                   "nodeType": "ExpressionStatement",
                   "src": "837:22:8"
                 }
               ]
             },
             "documentation": "@dev Prevents a contract from calling itself, directly or indirectly.\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`. Calling one nonReentrant function from\nanother is not supported. Instead, you can implement a\n`private` function doing the actual work, and a `external`\nwrapper marked as `nonReentrant`.",
-            "id": 498,
+            "id": 573,
             "name": "nonReentrant",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 482,
+              "id": 557,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "764:2:8"
@@ -571,7 +571,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 500,
+        "scope": 575,
         "src": "224:643:8"
       }
     ],
@@ -583,5 +583,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T03:29:27.184Z"
+  "updatedAt": "2018-07-29T15:51:29.193Z"
 }
