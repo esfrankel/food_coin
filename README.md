@@ -44,3 +44,13 @@ Colors: #3A7E4C
 - Ethereum wallet (Metamask)
 - ERC20 Food token
 ​
+## Demo Photos
+
+Home page:
+![Home page][home.png]
+
+Dashboard page:
+![dashboard page][dashboard.png]
+
+ID Verification form page:
+![Verification Form][IDVerify.png]
