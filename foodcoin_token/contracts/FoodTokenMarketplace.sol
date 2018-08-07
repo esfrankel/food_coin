@@ -1,4 +1,4 @@
-/*pragma solidity ^0.4.17;
+pragma solidity ^0.4.17;
 
 import "./zeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import "./FoodToken";
@@ -25,4 +25,4 @@ contract Purchase {
     FoodToken.transfer(owner, 1)
     purchase[item] = False
   }
-}*/
+}
