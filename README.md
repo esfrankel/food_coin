@@ -18,8 +18,6 @@ A user navigates to the home page which will be the food bank to buy food using 
 <li>Home (Food bank marketplace)</li>
 <li>Identity verification form </li>
 
-![](/Users/yizu/Documents/GitHub/food_coin/img/VeriFood_ProcessFlow.jpg)​
-
 ## Routes
 
 Index/Home
