@@ -5,14 +5,14 @@ const User = require('../models/user');
 const fs = require('fs');
 var rp = require('request-promise');
 
-const Web3 = require('web3')
+const Web3 = require('web3');
 
 const web3 = new Web3( new Web3.providers.HttpProvider('http://localhost:8545'));
 
 const Eth = require('ethjs-query');
 const EthContract = require('ethjs-contract');
 
-const request = require('request')
+const request = require('request');
 
 const distribution_address = web3.eth.accounts[0];
 console.log(distribution_address);
@@ -184,7 +184,7 @@ router.post('/verify/index', function(req, res, next) {
         });
 
 
-        res.redirect('/dashboard');
+        res.render('dashboard/index.hbs', {des: "You are now verified. Please buy food." });
 
     }
     else {
