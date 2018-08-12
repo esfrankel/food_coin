@@ -89,14 +89,14 @@
     "absolutePath": "/Users/ericfrankel/Desktop/food_coin/foodcoin_token/contracts/Purchase.sol",
     "exportedSymbols": {
       "Purchase": [
-        181
+        205
       ]
     },
-    "id": 182,
+    "id": 206,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 127,
+        "id": 151,
         "literals": [
           "solidity",
           "^",
@@ -112,19 +112,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 181,
+        "id": 205,
         "linearizedBaseContracts": [
-          181
+          205
         ],
         "name": "Purchase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 131,
+            "id": 155,
             "name": "purchases",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
+            "scope": 205,
             "src": "49:27:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -134,7 +134,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 128,
+                "id": 152,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "49:7:2",
@@ -143,11 +143,11 @@
                   "typeString": "address"
                 }
               },
-              "id": 130,
+              "id": 154,
               "length": {
                 "argumentTypes": null,
                 "hexValue": "34",
-                "id": 129,
+                "id": 153,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -174,10 +174,10 @@
           },
           {
             "constant": false,
-            "id": 133,
+            "id": 157,
             "name": "seller",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
+            "scope": 205,
             "src": "80:21:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -186,7 +186,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 132,
+              "id": 156,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "80:7:2",
@@ -200,25 +200,25 @@
           },
           {
             "body": {
-              "id": 142,
+              "id": 166,
               "nodeType": "Block",
               "src": "141:27:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 140,
+                    "id": 164,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 138,
+                      "id": 162,
                       "name": "seller",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 133,
+                      "referencedDeclaration": 157,
                       "src": "147:6:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -229,11 +229,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 139,
+                      "id": 163,
                       "name": "_seller",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 135,
+                      "referencedDeclaration": 159,
                       "src": "156:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -246,14 +246,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 141,
+                  "id": 165,
                   "nodeType": "ExpressionStatement",
                   "src": "147:16:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 143,
+            "id": 167,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -261,15 +261,15 @@
             "name": "Purchase",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 136,
+              "id": 160,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 135,
+                  "id": 159,
                   "name": "_seller",
                   "nodeType": "VariableDeclaration",
-                  "scope": 143,
+                  "scope": 167,
                   "src": "124:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -278,7 +278,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 134,
+                    "id": 158,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "124:7:2",
@@ -295,12 +295,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 137,
+              "id": 161,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "141:0:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "106:62:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -308,7 +308,7 @@
           },
           {
             "body": {
-              "id": 169,
+              "id": 193,
               "nodeType": "Block",
               "src": "233:101:2",
               "statements": [
@@ -322,7 +322,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 157,
+                        "id": 181,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -333,18 +333,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 153,
+                          "id": 177,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 151,
+                            "id": 175,
                             "name": "foodId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 145,
+                            "referencedDeclaration": 169,
                             "src": "247:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -356,7 +356,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 152,
+                            "id": 176,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -385,18 +385,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 156,
+                          "id": 180,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 154,
+                            "id": 178,
                             "name": "foodId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 145,
+                            "referencedDeclaration": 169,
                             "src": "262:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -408,7 +408,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "33",
-                            "id": 155,
+                            "id": 179,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -443,21 +443,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 150,
+                      "id": 174,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        711,
-                        712
+                        6382,
+                        6383
                       ],
-                      "referencedDeclaration": 711,
+                      "referencedDeclaration": 6382,
                       "src": "239:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 158,
+                    "id": 182,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -471,14 +471,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 159,
+                  "id": 183,
                   "nodeType": "ExpressionStatement",
                   "src": "239:35:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 165,
+                    "id": 189,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -487,25 +487,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 160,
+                        "id": 184,
                         "name": "purchases",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 131,
+                        "referencedDeclaration": 155,
                         "src": "280:9:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$4_storage",
                           "typeString": "address[4] storage ref"
                         }
                       },
-                      "id": 162,
+                      "id": 186,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 161,
+                        "id": 185,
                         "name": "foodId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 145,
+                        "referencedDeclaration": 169,
                         "src": "290:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -529,18 +529,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 163,
+                        "id": 187,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
+                        "referencedDeclaration": 6379,
                         "src": "300:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 164,
+                      "id": 188,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -560,33 +560,33 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 166,
+                  "id": 190,
                   "nodeType": "ExpressionStatement",
                   "src": "280:30:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 167,
+                    "id": 191,
                     "name": "foodId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 145,
+                    "referencedDeclaration": 169,
                     "src": "323:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 149,
-                  "id": 168,
+                  "functionReturnParameters": 173,
+                  "id": 192,
                   "nodeType": "Return",
                   "src": "316:13:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 170,
+            "id": 194,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -594,15 +594,15 @@
             "name": "purchase",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 146,
+              "id": 170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 145,
+                  "id": 169,
                   "name": "foodId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
+                  "scope": 194,
                   "src": "190:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -611,7 +611,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 144,
+                    "id": 168,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "190:4:2",
@@ -628,15 +628,15 @@
             },
             "payable": true,
             "returnParameters": {
-              "id": 149,
+              "id": 173,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 148,
+                  "id": 172,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
+                  "scope": 194,
                   "src": "227:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -645,7 +645,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 147,
+                    "id": 171,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "227:4:2",
@@ -660,7 +660,7 @@
               ],
               "src": "226:6:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "172:162:2",
             "stateMutability": "payable",
             "superFunction": null,
@@ -668,33 +668,33 @@
           },
           {
             "body": {
-              "id": 179,
+              "id": 203,
               "nodeType": "Block",
               "src": "390:27:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 177,
+                    "id": 201,
                     "name": "purchases",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 131,
+                    "referencedDeclaration": 155,
                     "src": "403:9:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$4_storage",
                       "typeString": "address[4] storage ref"
                     }
                   },
-                  "functionReturnParameters": 176,
-                  "id": 178,
+                  "functionReturnParameters": 200,
+                  "id": 202,
                   "nodeType": "Return",
                   "src": "396:16:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 180,
+            "id": 204,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -702,22 +702,22 @@
             "name": "getPurchases",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 171,
+              "id": 195,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "359:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 176,
+              "id": 200,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 175,
+                  "id": 199,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 180,
+                  "scope": 204,
                   "src": "378:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -727,7 +727,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 172,
+                      "id": 196,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "378:7:2",
@@ -736,11 +736,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 174,
+                    "id": 198,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "34",
-                      "id": 173,
+                      "id": 197,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -768,14 +768,14 @@
               ],
               "src": "377:12:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "338:79:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 182,
+        "scope": 206,
         "src": "26:393:2"
       }
     ],
@@ -785,14 +785,14 @@
     "absolutePath": "/Users/ericfrankel/Desktop/food_coin/foodcoin_token/contracts/Purchase.sol",
     "exportedSymbols": {
       "Purchase": [
-        181
+        205
       ]
     },
-    "id": 182,
+    "id": 206,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 127,
+        "id": 151,
         "literals": [
           "solidity",
           "^",
@@ -808,19 +808,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 181,
+        "id": 205,
         "linearizedBaseContracts": [
-          181
+          205
         ],
         "name": "Purchase",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 131,
+            "id": 155,
             "name": "purchases",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
+            "scope": 205,
             "src": "49:27:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -830,7 +830,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 128,
+                "id": 152,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "49:7:2",
@@ -839,11 +839,11 @@
                   "typeString": "address"
                 }
               },
-              "id": 130,
+              "id": 154,
               "length": {
                 "argumentTypes": null,
                 "hexValue": "34",
-                "id": 129,
+                "id": 153,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": false,
@@ -870,10 +870,10 @@
           },
           {
             "constant": false,
-            "id": 133,
+            "id": 157,
             "name": "seller",
             "nodeType": "VariableDeclaration",
-            "scope": 181,
+            "scope": 205,
             "src": "80:21:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -882,7 +882,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 132,
+              "id": 156,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "80:7:2",
@@ -896,25 +896,25 @@
           },
           {
             "body": {
-              "id": 142,
+              "id": 166,
               "nodeType": "Block",
               "src": "141:27:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 140,
+                    "id": 164,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 138,
+                      "id": 162,
                       "name": "seller",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 133,
+                      "referencedDeclaration": 157,
                       "src": "147:6:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -925,11 +925,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 139,
+                      "id": 163,
                       "name": "_seller",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 135,
+                      "referencedDeclaration": 159,
                       "src": "156:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -942,14 +942,14 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 141,
+                  "id": 165,
                   "nodeType": "ExpressionStatement",
                   "src": "147:16:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 143,
+            "id": 167,
             "implemented": true,
             "isConstructor": true,
             "isDeclaredConst": false,
@@ -957,15 +957,15 @@
             "name": "Purchase",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 136,
+              "id": 160,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 135,
+                  "id": 159,
                   "name": "_seller",
                   "nodeType": "VariableDeclaration",
-                  "scope": 143,
+                  "scope": 167,
                   "src": "124:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -974,7 +974,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 134,
+                    "id": 158,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "124:7:2",
@@ -991,12 +991,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 137,
+              "id": 161,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "141:0:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "106:62:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1004,7 +1004,7 @@
           },
           {
             "body": {
-              "id": 169,
+              "id": 193,
               "nodeType": "Block",
               "src": "233:101:2",
               "statements": [
@@ -1018,7 +1018,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 157,
+                        "id": 181,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1029,18 +1029,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 153,
+                          "id": 177,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 151,
+                            "id": 175,
                             "name": "foodId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 145,
+                            "referencedDeclaration": 169,
                             "src": "247:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1052,7 +1052,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "30",
-                            "id": 152,
+                            "id": 176,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1081,18 +1081,18 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 156,
+                          "id": 180,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
                             "argumentTypes": null,
-                            "id": 154,
+                            "id": 178,
                             "name": "foodId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 145,
+                            "referencedDeclaration": 169,
                             "src": "262:6:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -1104,7 +1104,7 @@
                           "rightExpression": {
                             "argumentTypes": null,
                             "hexValue": "33",
-                            "id": 155,
+                            "id": 179,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -1139,21 +1139,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 150,
+                      "id": 174,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        711,
-                        712
+                        6382,
+                        6383
                       ],
-                      "referencedDeclaration": 711,
+                      "referencedDeclaration": 6382,
                       "src": "239:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 158,
+                    "id": 182,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1167,14 +1167,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 159,
+                  "id": 183,
                   "nodeType": "ExpressionStatement",
                   "src": "239:35:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 165,
+                    "id": 189,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1183,25 +1183,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 160,
+                        "id": 184,
                         "name": "purchases",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 131,
+                        "referencedDeclaration": 155,
                         "src": "280:9:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$4_storage",
                           "typeString": "address[4] storage ref"
                         }
                       },
-                      "id": 162,
+                      "id": 186,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 161,
+                        "id": 185,
                         "name": "foodId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 145,
+                        "referencedDeclaration": 169,
                         "src": "290:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1225,18 +1225,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 163,
+                        "id": 187,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 708,
+                        "referencedDeclaration": 6379,
                         "src": "300:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 164,
+                      "id": 188,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1256,33 +1256,33 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 166,
+                  "id": 190,
                   "nodeType": "ExpressionStatement",
                   "src": "280:30:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 167,
+                    "id": 191,
                     "name": "foodId",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 145,
+                    "referencedDeclaration": 169,
                     "src": "323:6:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 149,
-                  "id": 168,
+                  "functionReturnParameters": 173,
+                  "id": 192,
                   "nodeType": "Return",
                   "src": "316:13:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 170,
+            "id": 194,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1290,15 +1290,15 @@
             "name": "purchase",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 146,
+              "id": 170,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 145,
+                  "id": 169,
                   "name": "foodId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
+                  "scope": 194,
                   "src": "190:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1307,7 +1307,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 144,
+                    "id": 168,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "190:4:2",
@@ -1324,15 +1324,15 @@
             },
             "payable": true,
             "returnParameters": {
-              "id": 149,
+              "id": 173,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 148,
+                  "id": 172,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 170,
+                  "scope": 194,
                   "src": "227:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1341,7 +1341,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 147,
+                    "id": 171,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "227:4:2",
@@ -1356,7 +1356,7 @@
               ],
               "src": "226:6:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "172:162:2",
             "stateMutability": "payable",
             "superFunction": null,
@@ -1364,33 +1364,33 @@
           },
           {
             "body": {
-              "id": 179,
+              "id": 203,
               "nodeType": "Block",
               "src": "390:27:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 177,
+                    "id": 201,
                     "name": "purchases",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 131,
+                    "referencedDeclaration": 155,
                     "src": "403:9:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$4_storage",
                       "typeString": "address[4] storage ref"
                     }
                   },
-                  "functionReturnParameters": 176,
-                  "id": 178,
+                  "functionReturnParameters": 200,
+                  "id": 202,
                   "nodeType": "Return",
                   "src": "396:16:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 180,
+            "id": 204,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1398,22 +1398,22 @@
             "name": "getPurchases",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 171,
+              "id": 195,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "359:2:2"
             },
             "payable": false,
             "returnParameters": {
-              "id": 176,
+              "id": 200,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 175,
+                  "id": 199,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 180,
+                  "scope": 204,
                   "src": "378:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1423,7 +1423,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 172,
+                      "id": 196,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "378:7:2",
@@ -1432,11 +1432,11 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 174,
+                    "id": 198,
                     "length": {
                       "argumentTypes": null,
                       "hexValue": "34",
-                      "id": 173,
+                      "id": 197,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1464,14 +1464,14 @@
               ],
               "src": "377:12:2"
             },
-            "scope": 181,
+            "scope": 205,
             "src": "338:79:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 182,
+        "scope": 206,
         "src": "26:393:2"
       }
     ],
@@ -1483,5 +1483,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-29T18:46:25.986Z"
+  "updatedAt": "2018-08-11T22:06:10.382Z"
 }
